@@ -21,7 +21,7 @@ class Home extends Component {
     // This solution works for a small application but a more complex hashing function should be used when
     // dealing with a larger data sensitive project.
 
-    if (this.state.todos.find(existing => existing.content == todo.content)) {
+    if (this.state.todos.find((existing) => existing.content == todo.content)) {
       return;
     }
 
@@ -32,16 +32,16 @@ class Home extends Component {
     // Update the local state with the new array.
     this.setState({
       todos: new_list,
-      id: this.state.id + 1
+      id: this.state.id + 1,
     });
   };
 
   removeTodo = (id) => {
-    const newList = this.state.todos.filter(todo => todo.id != id);
+    const newList = this.state.todos.filter((todo) => todo.id != id);
     this.setState({
-      todos: newList
+      todos: newList,
     });
-  }
+  };
   render() {
     return (
       <div className="Home">

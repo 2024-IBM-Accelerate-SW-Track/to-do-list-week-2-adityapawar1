@@ -18,10 +18,41 @@ const Todos = ({ todos, removeTodo }) => {
             {/* Remember, we set the local state of this todo item when the user submits the form in 
             AddTodo.js. All we need to do is return the todo list item {todo.content} */}
             <CardContent>
-              <div style={{ flexDirection: 'row', display: "flex", gap: 20 }}>
+              <div style={{ flexDirection: "row", display: "flex", gap: 20 }}>
                 <Checkbox onClick={() => removeTodo(todo.id)} />
-                <span style={{ color: "gray", fontSize: 12 }}>{todo.date.toLocaleTimeString('en-US')}</span>
-                <span style={{ textAlign: "left" }}>{todo.content}</span>
+                <span style={{ color: "gray", fontSize: 12 }}>
+                  {todo.date.toLocaleTimeString("en-US")}
+                </span>
+                <div style={{ flexDirection: "row", display: "flex", gap: 5 }}>
+                  <div
+                    style={{ flexDirection: "column", display: "flex", gap: 5 }}
+                  >
+                    <span style={{ textAlign: "left", fontSize: 8 }}>
+                      Content
+                    </span>
+                    <span style={{ textAlign: "left" }}>{todo.content}</span>
+                  </div>
+                  <div
+                    style={{ flexDirection: "column", display: "flex", gap: 5 }}
+                  >
+                    <span style={{ textAlign: "left", fontSize: 8 }}>
+                      Pre-Condition
+                    </span>
+                    <span style={{ textAlign: "left" }}>
+                      {todo.precondition}
+                    </span>
+                  </div>
+                  <div
+                    style={{ flexDirection: "column", display: "flex", gap: 5 }}
+                  >
+                    <span style={{ textAlign: "left", fontSize: 8 }}>
+                      Acceptence Criteria
+                    </span>
+                    <span style={{ textAlign: "left" }}>
+                      {todo.acceptenceCriteria}
+                    </span>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
