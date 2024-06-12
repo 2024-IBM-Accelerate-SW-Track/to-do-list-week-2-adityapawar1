@@ -21,7 +21,20 @@ const Todos = ({ todos, removeTodo }) => {
               <div style={{ flexDirection: 'row', display: "flex", gap: 20 }}>
                 <Checkbox onClick={() => removeTodo(todo.id)} />
                 <span style={{ color: "gray", fontSize: 12 }}>{todo.date.toLocaleTimeString('en-US')}</span>
-                <span style={{ textAlign: "left" }}>{todo.content}</span>
+                <div style={{ flexDirection: 'row', display: "flex", gap: 5 }}>
+                  <div style={{ flexDirection: 'column', display: "flex", gap: 5 }}>
+                    <span style={{ textAlign: "left", fontSize: 8 }}>Content</span>
+                    <span style={{ textAlign: "left" }}>{todo.content}</span>
+                  </div>
+                  <div style={{ flexDirection: 'column', display: "flex", gap: 5 }}>
+                    <span style={{ textAlign: "left", fontSize: 8 }}>Pre-Condition</span>
+                    <span style={{ textAlign: "left" }}>{todo.precondition}</span>
+                  </div>
+                  <div style={{ flexDirection: 'column', display: "flex", gap: 5 }}>
+                    <span style={{ textAlign: "left", fontSize: 8 }}>Acceptence Criteria</span>
+                    <span style={{ textAlign: "left" }}>{todo.acceptenceCriteria}</span>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
