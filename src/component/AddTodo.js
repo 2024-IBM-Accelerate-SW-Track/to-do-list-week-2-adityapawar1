@@ -24,7 +24,7 @@ class AddTodo extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.state.content.trim()) {
-      this.props.addTodo(this.state);
+      this.props.addTodo(this.state, new Date());
       this.setState({
         content: "",
       });
