@@ -1,6 +1,6 @@
-import { render, screen, fireEvent, waitFor} from '@testing-library/react';
-import { unmountComponentAtNode } from 'react-dom';
-import App from './App';
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { unmountComponentAtNode } from "react-dom";
+import App from "./App";
 
 let container = null;
 beforeEach(() => {
@@ -16,30 +16,30 @@ afterEach(() => {
   container = null;
 });
 
-test('test that App component renders', () => {
+test("test that App component renders", () => {
   render(<App />, container);
 });
 
-test('test that new-item-button is a button', () => {
-  render(<App/>, container);
-  const element = screen.getByTestId('new-item-button');
+test("test that new-item-button is a button", () => {
+  render(<App />, container);
+  const element = screen.getByTestId("new-item-button");
   expect(element).toBeInTheDocument();
 });
 
-test('test that new-item-textfield is an textfield ', () => {
-  render(<App/>, container);
-  const element = screen.getByTestId('new-item-textfield');
+test("test that new-item-textfield is an textfield ", () => {
+  render(<App />, container);
+  const element = screen.getByTestId("new-item-textfield");
   expect(element).toBeInTheDocument();
 });
 
-test('renders Todos component with empty todo list', () => {
+test("renders Todos component with empty todo list", () => {
   render(<App />, container);
   expect(screen.getByText("You have no todo's left")).toBeInTheDocument();
 });
 
-test('test that App component doesn\'t add a blank task', () => {
+test("test that App component doesn't add a blank task", () => {
   render(<App />, container);
-  const addButton = screen.getByTestId('new-item-button');
+  const addButton = screen.getByTestId("new-item-button");
 
   fireEvent.click(addButton);
 
@@ -47,13 +47,14 @@ test('test that App component doesn\'t add a blank task', () => {
   expect(check).toBeInTheDocument();
 });
 
-
-test('test that App component renders Task', () => {
+test("test that App component renders Task", () => {
   render(<App />, container);
   const taskInput = screen.getByTestId("new-item-textfield");
-  const addButton = screen.getByTestId('new-item-button');
+  const addButton = screen.getByTestId("new-item-button");
 
-  fireEvent.change(taskInput.querySelector('input'), { target: { value: 'History Test' } });
+  fireEvent.change(taskInput.querySelector("input"), {
+    target: { value: "History Test" },
+  });
 
   waitFor(() => {
     expect(taskInput.value).toBe("History Test");
@@ -67,12 +68,14 @@ test('test that App component renders Task', () => {
   });
 });
 
-test('test that App component renders Task', () => {
+test("test that App component renders Task", () => {
   render(<App />, container);
   const taskInput = screen.getByTestId("new-item-textfield");
-  const addButton = screen.getByTestId('new-item-button');
+  const addButton = screen.getByTestId("new-item-button");
 
-  fireEvent.change(taskInput.querySelector('input'), { target: { value: 'History Test' } });
+  fireEvent.change(taskInput.querySelector("input"), {
+    target: { value: "History Test" },
+  });
 
   waitFor(() => {
     expect(taskInput.value).toBe("History Test");

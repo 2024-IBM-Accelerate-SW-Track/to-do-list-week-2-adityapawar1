@@ -10,9 +10,9 @@ function AddTodo({ addTodo }) {
     event.preventDefault();
     if (content.trim()) {
       addTodo({ content, precondition, acceptenceCriteria }, new Date());
-      setContent("")
-      setPrecondition("")
-      setAcceptenceCriteria("")
+      setContent("");
+      setPrecondition("");
+      setAcceptenceCriteria("");
     }
   };
 
@@ -24,24 +24,33 @@ function AddTodo({ addTodo }) {
     // 3. The return should also include a button with the handleSubmit function from above that is passed into
     // an OnClick event.
     // 4. The value of the text field also should reflect the local state of this component.
-    <div style={{ display: "flex", gap: 8, flexDirection: "column", flexBasis: "400px", width: "20%", margin: "auto" }}>
+    <div
+      style={{
+        display: "flex",
+        gap: 8,
+        flexDirection: "column",
+        flexBasis: "400px",
+        width: "20%",
+        margin: "auto",
+      }}
+    >
       <TextField
         label="New Task Description"
         variant="outlined"
-        onChange={event => setContent(event.target.value)}
+        onChange={(event) => setContent(event.target.value)}
         value={content}
         data-testid="new-item-textfield"
       />
       <TextField
         label="Task Pre-Conditions"
         variant="outlined"
-        onChange={event => setPrecondition(event.target.value)}
+        onChange={(event) => setPrecondition(event.target.value)}
         value={precondition}
       />
       <TextField
         label="Task Acceptence Criteria"
         variant="outlined"
-        onChange={event => setAcceptenceCriteria(event.target.value)}
+        onChange={(event) => setAcceptenceCriteria(event.target.value)}
         value={acceptenceCriteria}
       />
       <Button
